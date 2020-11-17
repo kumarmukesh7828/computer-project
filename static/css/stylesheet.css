@@ -1,0 +1,32 @@
+body{
+    background-color:White smoke;
+}
+
+.nav-link{
+    font-size:15px;
+    opacity:0.9;
+}
+.navbar-brand{
+    font-size:20px;
+
+}
+.nav-item right{
+    float:right;
+}
+#search{
+    font-size:15px;
+}
+#searchbox{
+    font-size:15px;
+}
+.navbar-brand{
+    opacity:0.5;
+}
+
+
+.homeimg{
+
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}

@@ -1,0 +1,77 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+{% extends 'myapp/navbar.html' %}
+{% load crispy_forms_tags %}
+{% block body_block %}
+
+<style>
+
+table{
+    font-size:13px;
+    width:95%;
+    font-size:18px;
+    text-align:center;
+
+
+}
+.bordershadow{
+    box-shadow: 5px 10px 18px red;
+    padding:10px;
+    border:1px solid;
+}
+table tr:nth-child(odd){
+        background:#830ee3
+
+}
+table tr:nth-child(even){
+    background:#f2bfe2
+
+}
+.title{
+    font-family: Impact, Charcoal, sans-serif;
+    text-shadow:5px 5px 10px blue;
+
+}
+</style>
+<div class="container">
+    <div class="jumbotron">
+
+<h1 align="center" class="title">{{title}}<h1>
+   <h5> <form method="post" action="">
+        {% csrf_token %}
+           {{form|crispy}}
+        <input class="btn btn-primary" type="submit" value="Search">
+    </form></h5>
+<table align="center" class="bordershadow">
+    <tr>
+        <th>#</th>
+        <th>PC NAME</th>
+        <th>MAC ADDR</th>
+        <th>IP ADDRESS</th>
+        <th>USER'S NAME</th>
+        <th>LOCATION</th>
+        <th>DELETE</th>
+    </tr>
+    {% for instance in queryset %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td><a href="/computerlist/{{ instance.id }}" >{{instance.computer_name}}</td>
+        <td>{{instance.MAC_address}}</td>
+        <td>{{instance.IP_address}}</td>
+        <td>{{instance.user_name}}</td>
+        <td>{{instance.location}}</td>
+        <td><a href="/computerdelete/{{ instance.id }}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+        </div>
+</div>
+
+{% endblock %}
+<!--    </body>-->
+<!--</html>-->
